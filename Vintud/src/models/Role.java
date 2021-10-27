@@ -1,31 +1,21 @@
 package models;
 
+import java.util.List;
+
 import interfaces.RoleImpl;
 
 public class Role implements RoleImpl {
 	
-	private int id ;
+	private int role_id ;
 	private String nom ;
+	
 	
 	
 	public Role() {
 	}
 
 
-	public Role(int id, String nom) {
-		this.id = id;
-		this.nom = nom;
-	}
 
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 
 	public String getNom() {
@@ -38,11 +28,33 @@ public class Role implements RoleImpl {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Role [id=" + id + ", nom=" + nom + "]";
+
+
+	public int getRole_id() {
+		return role_id;
 	}
-	
+
+
+
+
+
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
+	}
+
+
+
+
+
+
+
+	public Role(int role_id, String nom) {
+		super();
+		this.role_id = role_id;
+		this.nom = nom;
+	}
+
+
 	
 	
 

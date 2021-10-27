@@ -9,7 +9,7 @@ public class Announcement implements AnnouncementImpl{
 
 	
 	
-	private int id ;
+	private int id_annoucement ;
 	private String title  ;
 	private String description  ;
 	private int category_id  ;
@@ -26,9 +26,14 @@ public class Announcement implements AnnouncementImpl{
 	}
 
 
-	public Announcement(int id, String title, String description, int category_id, float price, byte[] picture,
-			Date publication_date, float is_available, int view_number, String localisation, int user_id) {
-		this.id = id;
+
+
+
+
+	public Announcement(int id_annoucement, String title, String description, int category_id, float price,
+			byte[] picture, Date publication_date, float is_available, int view_number, String localisation,
+			int user_id) {
+		this.id_annoucement = id_annoucement;
 		this.title = title;
 		this.description = description;
 		this.category_id = category_id;
@@ -42,14 +47,26 @@ public class Announcement implements AnnouncementImpl{
 	}
 
 
-	public int getId() {
-		return id;
+
+
+
+
+	public int getId_annoucement() {
+		return id_annoucement;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+
+
+
+
+	public void setId_annoucement(int id_annoucement) {
+		this.id_annoucement = id_annoucement;
 	}
+
+
+
+
 
 
 	public String getTitle() {
@@ -152,14 +169,7 @@ public class Announcement implements AnnouncementImpl{
 	}
 
 
-	@Override
-	public String toString() {
-		return "Announcement [id=" + id + ", title=" + title + ", description=" + description + ", category_id="
-				+ category_id + ", price=" + price + ", picture=" + Arrays.toString(picture) + ", publication_date="
-				+ publication_date + ", is_available=" + is_available + ", view_number=" + view_number
-				+ ", localisation=" + localisation + ", user_id=" + user_id + "]";
-	}
-	
+
 	
 	
 	

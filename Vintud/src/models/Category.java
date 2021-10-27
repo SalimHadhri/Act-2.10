@@ -1,34 +1,44 @@
 package models;
 
+import java.util.List;
+
 import interfaces.CategoryImpl;
 
 public class Category implements CategoryImpl{
 
 	
-	private int id ;
+	private int id_category ;
 	private String name  ;
 	private String description  ;
-	
+	private List<Announcement> annoucementsList    ;
 	
 	public Category() {
 	}
 
 
-	public Category(int id, String name, String description) {
-		this.id = id;
+
+
+	public int getId_category() {
+		return id_category;
+	}
+
+
+
+
+	public void setId_category(int id_category) {
+		this.id_category = id_category;
+	}
+
+
+
+
+	public Category(int id_category, String name, String description) {
+		this.id_category = id_category;
 		this.name = name;
 		this.description = description;
 	}
 
 
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 
 	public String getName() {
@@ -51,9 +61,15 @@ public class Category implements CategoryImpl{
 	}
 
 
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + "]";
+
+
+	public List<Announcement> getAnnoucementsList() {
+		return annoucementsList;
+	}
+
+
+	public void setAnnoucementsList(List<Announcement> annoucementsList) {
+		this.annoucementsList = annoucementsList;
 	}
 	
 	
