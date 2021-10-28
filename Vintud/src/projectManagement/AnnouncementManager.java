@@ -264,6 +264,35 @@ public class AnnouncementManager {
     	affiche("fin du programme");
 	    System.exit(0);  	
     }
+    
+    
+    public void consulterAnnonces () {
+    	requete = "SELECT * FROM vintud.announcement ; ";
+		try {
+	         Statement stmt = con.createStatement();
+	         résultats = stmt.executeQuery(requete);
+			 boolean encore = résultats.next();
+			   while (encore) {
+				   System.out.println("*********** new announcement ********");
+				   System.out.println(résultats.getInt("id")
+					+"\n"+résultats.getString("title")
+				   +"\n"+résultats.getString("description")
+					+"\n"+résultats.getInt("category_id")
+					+"\n"+résultats.getFloat("price")
+					+"\n"+résultats.getByte("picture")
+					+"\n"+résultats.getTimestamp("publication_date")
+					+"\n"+résultats.getBoolean("is_available")
+					+"\n"+résultats.getInt("view_number")
+					+"\n"+résultats.getString("localisation")
+					+"\n"+résultats.getInt("user_id") );
+				   
+				   encore = résultats.next();
+			   }
+			   résultats.close();
+			} catch (SQLException e) {
+				arret("Anomalie lors de l'execution de la requête") ;
+			}
+	}
 
 }
 

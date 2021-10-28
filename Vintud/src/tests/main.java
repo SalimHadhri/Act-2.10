@@ -13,7 +13,8 @@ public class main {
 		AnnouncementManager announcementManager = new AnnouncementManager() ;
 		//announcementManager.creerUnCompte() ;
 		//announcementManager.connectAccount();
-		announcementManager.modificationInformationsPersonnelles(); 
+		//announcementManager.modificationInformationsPersonnelles(); 
+		announcementManager.consulterAnnonces();
 	}
 
 }
