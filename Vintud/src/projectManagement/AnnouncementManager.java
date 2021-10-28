@@ -293,6 +293,13 @@ public class AnnouncementManager {
 				arret("Anomalie lors de l'execution de la requête") ;
 			}
 	}
+    
+    
+    public void rechercheAnnonce () {
+    	
+    	
+    	
+    }
 
 }
 
