@@ -3,9 +3,9 @@ package models;
 import java.sql.Date;
 import java.util.Arrays;
 
-import interfaces.AnnouncementImpl;
+import DAO.AnnouncementDao;
 
-public class Announcement implements AnnouncementImpl{
+public class Announcement{
 
 	
 	
@@ -27,19 +27,9 @@ public class Announcement implements AnnouncementImpl{
 
 
 
-
-
-
-
-
-
-
-
-
 	public Announcement(int id_annoucement, String title, String description, int category_id, float price,
 			byte[] picture, Date publication_date, boolean is_available, int view_number, String localisation,
 			int user_id) {
-		super();
 		this.id_annoucement = id_annoucement;
 		this.title = title;
 		this.description = description;
@@ -55,31 +45,15 @@ public class Announcement implements AnnouncementImpl{
 
 
 
-
-
-
-
-
-
-
-
-
 	public int getId_annoucement() {
 		return id_annoucement;
 	}
 
 
 
-
-
-
 	public void setId_annoucement(int id_annoucement) {
 		this.id_annoucement = id_annoucement;
 	}
-
-
-
-
 
 
 	public String getTitle() {
@@ -140,9 +114,6 @@ public class Announcement implements AnnouncementImpl{
 	public void setPublication_date(Date publication_date) {
 		this.publication_date = publication_date;
 	}
-
-
-
 
 
 	public boolean isIs_available() {

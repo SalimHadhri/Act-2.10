@@ -1,4 +1,4 @@
-package projectManagement;
+package utils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,14 +15,17 @@ import models.User;
 public class AnnouncementManager {
 
 	
-	Connection  con = ConnectionManager.getConnection();
+    Connection con = ConnectionManager.getInstance().getConnection();
+    
+
+
     ResultSet résultats = null;
     String requete = "";
     ResultSetMetaData rsmd;
     
 
-    		
-    		
+
+    	
 	
     private static void arret(String message) {
         System.err.println(message);
@@ -36,7 +39,6 @@ public class AnnouncementManager {
     
     
     public AnnouncementManager() {
-		super();
 	}
 
 	public void creerUnCompte (){
@@ -208,7 +210,6 @@ public class AnnouncementManager {
 
 	 	return userConnected ;
 	 	
-	    //System.exit(0);
 	    
 	    //return userConnected ;
 	    

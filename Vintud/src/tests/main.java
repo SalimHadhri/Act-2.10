@@ -1,20 +1,42 @@
 package tests;
 
+
+import DAO.AnnouncementDao;
+import DAO.FavorisDAO;
+import DAO.UserDao;
+import DAOImplementationsImpl.AnnouncementDaoImpl;
+import DAOImplementationsImpl.FavorisDaoImpl;
+import DAOImplementationsImpl.UserDaoImpl;
 import models.User;
-import projectManagement.AnnouncementManager;
-import projectManagement.ConnectionManager;
+import utils.AnnouncementManager;
 
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		User userConnected = new User() ;
-		AnnouncementManager announcementManager = new AnnouncementManager() ;
-		//announcementManager.creerUnCompte() ;
-		//announcementManager.connectAccount();
-		//announcementManager.modificationInformationsPersonnelles(); 
-		announcementManager.consulterAnnonces();
+	
+		/*******************************************************************/
+		UserDao userdev = new UserDaoImpl() ;
+		
+		//userdev.creerUnCompte();
+		//userdev.connectAccount() ;
+		//userdev.modificationInformationsPersonnelles();
+		
+		/***********************************************************************/
+		AnnouncementDao annoucementdev = new AnnouncementDaoImpl(); 
+		
+		//annoucementdev.consulterAnnonces(); 
+		//annoucementdev.findAnnounceById (1) ;
+		/********************************************************************/
+		FavorisDAO favorisdev = new FavorisDaoImpl() ; 
+		
+		//favorisdev.creerFavoris(); 	
+		//favorisdev.afficherFavoris();
+		//favorisdev.supprimerFavoris();
+		//favorisdev.RetrouverAnnounce();
+		favorisdev.modifyFavori(); 
+		
+
 	}
 
 }

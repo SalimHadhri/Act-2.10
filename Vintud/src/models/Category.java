@@ -2,9 +2,9 @@ package models;
 
 import java.util.List;
 
-import interfaces.CategoryImpl;
+import DAO.CategoryDao;
 
-public class Category implements CategoryImpl{
+public class Category {
 
 	
 	private int id_category ;
@@ -15,31 +15,19 @@ public class Category implements CategoryImpl{
 	public Category() {
 	}
 
-
-
-
 	public int getId_category() {
 		return id_category;
 	}
 
-
-
-
 	public void setId_category(int id_category) {
 		this.id_category = id_category;
 	}
-
-
-
 
 	public Category(int id_category, String name, String description) {
 		this.id_category = id_category;
 		this.name = name;
 		this.description = description;
 	}
-
-
-
 
 	public String getName() {
 		return name;
@@ -60,9 +48,6 @@ public class Category implements CategoryImpl{
 		this.description = description;
 	}
 
-
-
-
 	public List<Announcement> getAnnoucementsList() {
 		return annoucementsList;
 	}
@@ -72,7 +57,5 @@ public class Category implements CategoryImpl{
 		this.annoucementsList = annoucementsList;
 	}
 	
-	
-	
-	
+
 }

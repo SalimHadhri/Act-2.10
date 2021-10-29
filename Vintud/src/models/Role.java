@@ -2,21 +2,15 @@ package models;
 
 import java.util.List;
 
-import interfaces.RoleImpl;
+import DAO.RoleDao;
 
-public class Role implements RoleImpl {
+public class Role  {
 	
 	private int role_id ;
 	private String nom ;
 	
-	
-	
 	public Role() {
 	}
-
-
-
-
 
 	public String getNom() {
 		return nom;
@@ -28,23 +22,13 @@ public class Role implements RoleImpl {
 	}
 
 
-
-
 	public int getRole_id() {
 		return role_id;
 	}
 
-
-
-
-
 	public void setRole_id(int role_id) {
 		this.role_id = role_id;
 	}
-
-
-
-
 
 
 
@@ -53,9 +37,5 @@ public class Role implements RoleImpl {
 		this.role_id = role_id;
 		this.nom = nom;
 	}
-
-
-	
-	
 
 }
