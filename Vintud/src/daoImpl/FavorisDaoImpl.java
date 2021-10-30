@@ -1,6 +1,6 @@
-package DAOImplementationsImpl;
+package daoImpl;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -12,9 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-import DAO.AnnouncementDao;
-import DAO.FavorisDAO;
-import DAO.UserDao;
+import dao.AnnouncementDao;
+import dao.FavorisDAO;
+import dao.UserDao;
 import models.Favoris;
 import models.User;
 import utils.ConnectionManager;
@@ -107,7 +107,8 @@ public class FavorisDaoImpl implements FavorisDAO{
 			  while (encore) {
 				   System.out.println("*********** new Favori ********");
 				   DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-				   System.out.println(résultats.getInt("id")+"\n"+dateFormat.format(résultats.getDate("dateajout"))+"\n" +"id announcement :  "+  résultats.getInt("announcement_id") ); 
+				   System.out.println(résultats.getInt("id")+"\n"+dateFormat.format(résultats.getDate("dateajout"))+"\n" +"id announcement :  "+  résultats.getInt("announcement_id")
+				   +"\n" +résultats.getInt("user_id")); 
 				   
 				   encore = résultats.next();
 			   }
@@ -127,7 +128,7 @@ public class FavorisDaoImpl implements FavorisDAO{
 		int idFavoriToDelete= sc7.nextInt();
 		
 		try {
-		requete ="DELETE FROM vintud.favoris WHERE id='"+idFavoriToDelete+"' ;" ;
+		requete ="DELETE FROM vintud.favoris WHERE id="+idFavoriToDelete+" ;" ;
 		
 		
 		PreparedStatement stmt = con.prepareStatement(requete);

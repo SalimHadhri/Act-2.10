@@ -1,4 +1,4 @@
-package DAOImplementationsImpl;
+package daoImpl;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,8 +6,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import DAO.AnnouncementDao;
-import DAO.UserDao;
+import dao.AnnouncementDao;
+import dao.UserDao;
 import utils.ConnectionManager;
 
 public class AnnouncementDaoImpl implements AnnouncementDao{

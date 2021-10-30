@@ -1,6 +1,6 @@
-package DAOImplementationsImpl;
+package daoImpl;
 
-import DAO.CategoryDao;
+import dao.CategoryDao;
 
 public class CategoryDaoImpl implements CategoryDao{
 

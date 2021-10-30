@@ -1,12 +1,14 @@
 package tests;
 
 
-import DAO.AnnouncementDao;
-import DAO.FavorisDAO;
-import DAO.UserDao;
-import DAOImplementationsImpl.AnnouncementDaoImpl;
-import DAOImplementationsImpl.FavorisDaoImpl;
-import DAOImplementationsImpl.UserDaoImpl;
+import dao.AnnouncementDao;
+import dao.FavorisDAO;
+import dao.RechercheDAO;
+import dao.UserDao;
+import daoImpl.AnnouncementDaoImpl;
+import daoImpl.FavorisDaoImpl;
+import daoImpl.RechercheDaoImpl;
+import daoImpl.UserDaoImpl;
 import models.User;
 import utils.AnnouncementManager;
 
@@ -34,8 +36,16 @@ public class main {
 		//favorisdev.afficherFavoris();
 		//favorisdev.supprimerFavoris();
 		//favorisdev.RetrouverAnnounce();
-		favorisdev.modifyFavori(); 
+		//favorisdev.modifyFavori(); 
 		
+		/******************************************************************************/
+		RechercheDAO rechercheToUse = new  RechercheDaoImpl() ;
+		
+		rechercheToUse.creerRecherche(); 
+		//rechercheToUse.afficherRecherches() ;
+		//rechercheToUse.supprimerRecherche();
+		//rechercheToUse.lancerRecherche();
+		//rechercheToUse.modifyRecherche()   ;
 
 	}
 
