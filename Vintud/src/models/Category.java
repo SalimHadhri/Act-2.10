@@ -2,7 +2,7 @@ package models;
 
 import java.util.List;
 
-import dao.CategoryDao;
+import DAO.CategoryDao;
 
 public class Category {
 

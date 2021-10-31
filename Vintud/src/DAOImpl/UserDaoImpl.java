@@ -1,4 +1,4 @@
-package daoImpl;
+package DAOImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import dao.UserDao;
+import DAO.UserDao;
+import factory.DAOFactory;
 import models.User;
 import utils.ConnectionManager;
 
@@ -16,7 +17,7 @@ public class UserDaoImpl implements UserDao {
 	
 	
 	
-    Connection con = ConnectionManager.getInstance().getConnection();
+    Connection con = DAOFactory.connect();
     ResultSet résultats = null;
     String requete = "";
     ResultSetMetaData rsmd;

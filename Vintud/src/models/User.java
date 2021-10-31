@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.UserDao;
+import DAO.UserDao;
 
 public class User {
 

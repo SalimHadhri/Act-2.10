@@ -1,6 +1,6 @@
-package daoImpl;
+package DAOImpl;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -8,17 +8,19 @@ import java.sql.Statement;
 import java.util.Locale;
 import java.util.Scanner;
 
-import dao.AnnouncementDao;
-import dao.CategoryDao;
-import dao.UserDao;
+import DAO.AnnouncementDao;
+import DAO.CategoryDao;
+import DAO.UserDao;
+import factory.DAOFactory;
 import models.Recherche;
 import utils.ConnectionManager;
 
 public class AnnouncementDaoImpl implements AnnouncementDao{
 
-    Connection con = ConnectionManager.getInstance().getConnection();
-    
+    Connection con = DAOFactory.connect();
+    //ConnectionManager.getInstance().getConnection();
 
+	CategoryDao categoryDao = DAOFactory.getCategoryDAO() ;
 
     ResultSet résultats = null;
     String requete = "";
@@ -111,7 +113,6 @@ public class AnnouncementDaoImpl implements AnnouncementDao{
 		String nomAnnonce= sc1.nextLine();
 		
 		System.out.println("**********choisissez entre ces categories******");
-		CategoryDao categoryDao = new CategoryDaoImpl();
 		categoryDao.AfficherCategories();
 		
 		

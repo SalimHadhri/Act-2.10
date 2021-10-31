@@ -1,6 +1,6 @@
-package daoImpl;
+package DAOImpl;
 
-import dao.RoleDao;
+import DAO.RoleDao;
 
 public class RoleDaoImpl implements RoleDao {
 

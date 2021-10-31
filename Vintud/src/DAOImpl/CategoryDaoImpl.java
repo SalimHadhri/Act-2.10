@@ -1,4 +1,4 @@
-package daoImpl;
+package DAOImpl;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,7 +6,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import dao.CategoryDao;
+import DAO.CategoryDao;
+import factory.DAOFactory;
 import utils.ConnectionManager;
 
 public class CategoryDaoImpl implements CategoryDao{
@@ -14,7 +15,7 @@ public class CategoryDaoImpl implements CategoryDao{
 	
 	
 
- 	Connection con = ConnectionManager.getInstance().getConnection();
+    Connection con = DAOFactory.connect();
 
     ResultSet résultats = null;
     String requete = "";

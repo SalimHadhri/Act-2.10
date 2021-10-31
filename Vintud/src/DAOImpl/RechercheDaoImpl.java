@@ -1,6 +1,6 @@
-package daoImpl;
+package DAOImpl;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -11,9 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
-import dao.AnnouncementDao;
-import dao.RechercheDAO;
-import dao.UserDao;
+import DAO.AnnouncementDao;
+import DAO.RechercheDAO;
+import DAO.UserDao;
+import factory.DAOFactory;
 import models.Favoris;
 import models.Recherche;
 import models.User;
@@ -22,8 +23,10 @@ import utils.ConnectionManager;
 public class RechercheDaoImpl implements RechercheDAO{
 	
 	
- 	Connection con = ConnectionManager.getInstance().getConnection();
-
+    Connection con = DAOFactory.connect();
+ 	UserDao userDAO = DAOFactory.getUserDAO() ;
+ 	
+ 	
     ResultSet résultats = null;
     String requete = "";
     ResultSetMetaData rsmd;
@@ -84,8 +87,7 @@ public class RechercheDaoImpl implements RechercheDAO{
 	    	newRecherche.setFourchette_prix(price);
 	    	
 	    	
-	    	UserDao userChoose = new UserDaoImpl();
-	    	userChoose.afficherUtilisateurs(); 
+	    	userDAO.afficherUtilisateurs(); 
 			
 	    	Scanner sc11 = new Scanner(System.in);
 	    	System.out.println("Enter the id of the user performing this search :");
@@ -204,8 +206,7 @@ public class RechercheDaoImpl implements RechercheDAO{
 	    
 	    public void lancerRecherche() {
 	    	
-	    	UserDao daoUtilisateur = new UserDaoImpl () ;
-	    	User utilisateurConnecte = daoUtilisateur.connectAccount() ;
+	    	User utilisateurConnecte = userDAO.connectAccount() ;
 	    	
 	    	//Recherche searchFound = findResearchByIdUser(utilisateurConnecte.getId_user()) ;
 	    	

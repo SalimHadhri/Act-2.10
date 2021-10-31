@@ -1,4 +1,5 @@
-package daoImpl;
+package DAOImpl;
+
 
 import java.sql.Connection; 
 import java.sql.PreparedStatement;
@@ -12,9 +13,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-import dao.AnnouncementDao;
-import dao.FavorisDAO;
-import dao.UserDao;
+import DAO.AnnouncementDao;
+import DAO.FavorisDAO;
+import DAO.UserDao;
+import factory.DAOFactory;
 import models.Favoris;
 import models.User;
 import utils.ConnectionManager;
@@ -22,7 +24,9 @@ import utils.ConnectionManager;
 public class FavorisDaoImpl implements FavorisDAO{
 
 	
-	 	Connection con = ConnectionManager.getInstance().getConnection();
+    	Connection con = DAOFactory.connect();
+	 	UserDao userDAO = DAOFactory.getUserDAO() ;
+	 	AnnouncementDao announceDAO=DAOFactory.getAnnoucementDAO() ;
 
 	    ResultSet résultats = null;
 	    String requete = "";
@@ -52,16 +56,14 @@ public class FavorisDaoImpl implements FavorisDAO{
 	    	favoris.setId_favoris(idFavori);
 		
 		
-	    	UserDao userChoose = new UserDaoImpl();
-	    	userChoose.afficherUtilisateurs(); 
+	    	userDAO.afficherUtilisateurs(); 
 			
 	    	Scanner sc7 = new Scanner(System.in);
 	    	System.out.println("Enter the id of your user :");
 	    	int idUser= sc7.nextInt();
 	    	favoris.setId_utilisateur(idUser);
 		
-	    	AnnouncementDao annonceChoose = new AnnouncementDaoImpl();
-	    	annonceChoose.consulterAnnonces(); 
+	    	announceDAO.consulterAnnonces(); 
 	    	Scanner sc8 = new Scanner(System.in);
 	    	System.out.println("Enter the id of your announcement :");
 	    	int idAnnouncement= sc8.nextInt();
@@ -150,13 +152,12 @@ public class FavorisDaoImpl implements FavorisDAO{
 		
 	public void RetrouverAnnounce() {
 		
-		AnnouncementDao annouceToFind= new AnnouncementDaoImpl () ; 
 		System.out.println("For which favori do you want to find the annoucement ? Choose one !!");	
 		afficherFavoris() ;		
 		Scanner sc7 = new Scanner(System.in);
 		int announceToFind= sc7.nextInt();	
 		System.out.println(" That's it !! look at your dashbord ");	
-		annouceToFind.findAnnounceById(announceToFind);
+		announceDAO.findAnnounceById(announceToFind);
 
 	}
 

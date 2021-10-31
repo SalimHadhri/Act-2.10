@@ -1,65 +1,64 @@
 package tests;
 
 
-import dao.AnnouncementDao;
 
-import dao.CategoryDao;
-import dao.FavorisDAO;
-import dao.RechercheDAO;
-import dao.UserDao;
-import daoImpl.AnnouncementDaoImpl;
-import daoImpl.CategoryDaoImpl;
-import daoImpl.FavorisDaoImpl;
-import daoImpl.RechercheDaoImpl;
-import daoImpl.UserDaoImpl;
+import DAO.AnnouncementDao;
+import DAO.CategoryDao;
+import DAO.FavorisDAO;
+import DAO.RechercheDAO;
+import DAO.UserDao;
+import factory.DAOFactory;
 import models.User;
 
 public class main {
 
 	public static void main(String[] args) {
 
-	
-		/*******************************************************************/
-		UserDao userdev = new UserDaoImpl() ;
+		UserDao userDao = DAOFactory.getUserDAO();
+		AnnouncementDao announcementDao = DAOFactory.getAnnoucementDAO() ;
+		FavorisDAO favorisDAO = DAOFactory.getFavorisDAO();
+		RechercheDAO rechercheDAO = DAOFactory.getRechercheDAO() ;
+		CategoryDao categoryDao = DAOFactory.getCategoryDAO() ; 
 		
-		//userdev.creerUnCompte();
-		//userdev.connectAccount() ;
-		//userdev.modificationInformationsPersonnelles();
+		
+		
+		
+		/*******************************************************************/
+		
+		//userDao.creerUnCompte();
+		//userDao.connectAccount() ;
+		//userDao.modificationInformationsPersonnelles();
 		
 		/***********************************************************************/
-		AnnouncementDao annoucementdev = new AnnouncementDaoImpl(); 
 		
-		//annoucementdev.consulterAnnonces(); 
-		//annoucementdev.findAnnounceById (1) ;
+		//announcementDao.consulterAnnonces(); 
+		//announcementDao.findAnnounceById (1) ;
 		/********************************************************************/
-		FavorisDAO favorisdev = new FavorisDaoImpl() ; 
 		
-		//favorisdev.creerFavoris(); 	
-		//favorisdev.afficherFavoris();
-		//favorisdev.supprimerFavoris();
-		//favorisdev.RetrouverAnnounce();
-		//favorisdev.modifyFavori(); 
+		//favorisDAO.creerFavoris(); 	
+		//favorisDAO.afficherFavoris();
+		//favorisDAO.supprimerFavoris();
+		//favorisDAO.RetrouverAnnounce();
+		//favorisDAO.modifyFavori(); 
 		
 		/******************************************************************************/
-		RechercheDAO rechercheToUse = new  RechercheDaoImpl() ;
 		
-		//rechercheToUse.creerRecherche(); 
-		//rechercheToUse.afficherRecherches() ;
-		//rechercheToUse.supprimerRecherche();
-		//rechercheToUse.lancerRecherche();
-		//rechercheToUse.modifyRecherche()   ;
+		//rechercheDAO.creerRecherche(); 
+		//rechercheDAO.afficherRecherches() ;
+		//rechercheDAO.supprimerRecherche();
+		//rechercheDAO.lancerRecherche();
+		//rechercheDAO.modifyRecherche()   ;
 
 		/*********************************************************************************/
-		CategoryDao categoryDaoToUse = new CategoryDaoImpl() ;
 		
-		//categoryDaoToUse.AfficherCategories();
+		//categoryDao.AfficherCategories();
 		
 		/***************************************************************/
 		
-		//annoucementdev.consulterAnnonces(); 
-		//annoucementdev.findAnnouncementByNameCatgeryAndOrPrice();
-		//annoucementdev.filtreAnnoucementPrix();
-		annoucementdev.filtreAnnoucementLocalisation();
+		//announcementDao.consulterAnnonces(); 
+		//announcementDao.findAnnouncementByNameCatgeryAndOrPrice();
+		//announcementDao.filtreAnnoucementPrix();
+		announcementDao.filtreAnnoucementLocalisation();
 	}
 
 }

@@ -2,7 +2,7 @@ package models;
 
 import java.util.List;
 
-import dao.RoleDao;
+import DAO.RoleDao;
 
 public class Role  {
 	

@@ -3,7 +3,7 @@ package models;
 import java.sql.Date;
 import java.util.Arrays;
 
-import dao.AnnouncementDao;
+import DAO.AnnouncementDao;
 
 public class Announcement{
 
