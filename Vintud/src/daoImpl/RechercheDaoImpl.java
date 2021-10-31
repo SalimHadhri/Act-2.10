@@ -312,9 +312,8 @@ public class RechercheDaoImpl implements RechercheDAO{
 			}
 	    	affiche("fin du programme");
 		    System.exit(0) ;
-    }
-	    
+    }	    
 	
-	}
+}
 
 

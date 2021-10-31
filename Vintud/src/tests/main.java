@@ -2,15 +2,17 @@ package tests;
 
 
 import dao.AnnouncementDao;
+
+import dao.CategoryDao;
 import dao.FavorisDAO;
 import dao.RechercheDAO;
 import dao.UserDao;
 import daoImpl.AnnouncementDaoImpl;
+import daoImpl.CategoryDaoImpl;
 import daoImpl.FavorisDaoImpl;
 import daoImpl.RechercheDaoImpl;
 import daoImpl.UserDaoImpl;
 import models.User;
-import utils.AnnouncementManager;
 
 public class main {
 
@@ -41,12 +43,23 @@ public class main {
 		/******************************************************************************/
 		RechercheDAO rechercheToUse = new  RechercheDaoImpl() ;
 		
-		rechercheToUse.creerRecherche(); 
+		//rechercheToUse.creerRecherche(); 
 		//rechercheToUse.afficherRecherches() ;
 		//rechercheToUse.supprimerRecherche();
 		//rechercheToUse.lancerRecherche();
 		//rechercheToUse.modifyRecherche()   ;
 
+		/*********************************************************************************/
+		CategoryDao categoryDaoToUse = new CategoryDaoImpl() ;
+		
+		//categoryDaoToUse.AfficherCategories();
+		
+		/***************************************************************/
+		
+		//annoucementdev.consulterAnnonces(); 
+		//annoucementdev.findAnnouncementByNameCatgeryAndOrPrice();
+		//annoucementdev.filtreAnnoucementPrix();
+		annoucementdev.filtreAnnoucementLocalisation();
 	}
 
 }

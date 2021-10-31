@@ -192,44 +192,40 @@ public class FavorisDaoImpl implements FavorisDAO{
 
 	public void modifyFavori() {
 	 		 
-				System.out.println("let's proceed to the modification ");		
-				try { 
+		System.out.println("let's proceed to the modification ");		
+		try { 
 					
-					System.out.println("that's the list of your favori");
-					afficherFavoris() ;
-					System.out.println("  now choose which favori do you want to modify ");
-					Scanner sc7 = new Scanner(System.in);
-					int favoriToModify= sc7.nextInt();
-					Favoris newFavorie = chooseFavorisSpecifications () ;			 
+			System.out.println("that's the list of your favori");
+			afficherFavoris() ;
+			System.out.println("  now choose which favori do you want to modify ");
+			Scanner sc7 = new Scanner(System.in);
+			int favoriToModify= sc7.nextInt();
+			Favoris newFavorie = chooseFavorisSpecifications () ;			 
 
-					String date = "'"+ newFavorie.getDateAjout()+"'" ;
-					requete =" UPDATE  vintud.favoris  SET " 
-	    			 +"id= "+newFavorie.getId_favoris()
-	    			 +",announcement_id=" + newFavorie.getId_announcement()
-	    			 +",user_id=" + newFavorie.getId_utilisateur()
-	    			 +",dateajout= " +date 
-	    			 + " WHERE id="+  favoriToModify + ";" ; 
+			String date = "'"+ newFavorie.getDateAjout()+"'" ;
+				requete =" UPDATE  vintud.favoris  SET " 
+	    		+"id= "+newFavorie.getId_favoris()
+	    		+",announcement_id=" + newFavorie.getId_announcement()
+	    		+",user_id=" + newFavorie.getId_utilisateur()
+	    		+",dateajout= " +date 
+	    		+ " WHERE id="+  favoriToModify + ";" ; 
     	
 	    		
-					PreparedStatement stmt1 = con.prepareStatement(requete);
-					stmt1.executeUpdate() ;
+			PreparedStatement stmt1 = con.prepareStatement(requete);
+			stmt1.executeUpdate() ;
 	    		
-					System.out.println("successs!! your personal credentials has been modified with success");
-					stmt1.close();
+			System.out.println("successs!! your personal credentials has been modified with success");
+			stmt1.close();
 
-				} 
-				catch (SQLException e) {
+			} 
+			catch (SQLException e) {
 				e.printStackTrace();
-				}
-		    	affiche("fin du programme");
-			    System.exit(0) ;
+			}
+		    affiche("fin du programme");
+			System.exit(0) ;
 	    }
-		
-		
-		
-		
-	 		
-		}
+ 		
+}
 	
 	
 

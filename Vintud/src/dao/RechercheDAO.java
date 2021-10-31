@@ -1,6 +1,5 @@
 package dao;
 
-import models.Favoris;
 import models.Recherche;
 
 public interface RechercheDAO {

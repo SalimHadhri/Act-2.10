@@ -1,9 +1,7 @@
 package dao;
 
-import java.text.ParseException;
 
 import models.Favoris;
-import models.User;
 
 public interface FavorisDAO {
 
