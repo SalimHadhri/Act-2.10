@@ -2,6 +2,7 @@ package DAOImpl;
 
 
 import java.sql.Connection; 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -10,6 +11,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -225,6 +227,65 @@ public class FavorisDaoImpl implements FavorisDAO{
 		    affiche("fin du programme");
 			System.exit(0) ;
 	    }
+	
+	public void afficherFavorisForAUser(int idUser) {				
+
+		
+		requete = "SELECT * FROM vintud.favoris WHERE user_id="+idUser+"; ";
+		try {
+	         Statement stmt = con.createStatement();
+	         résultats = stmt.executeQuery(requete);
+			 boolean encore = résultats.next();
+			  while (encore) {
+				   System.out.println("*********** new Favori ********");
+				   DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				   System.out.println(résultats.getInt("id")+"\n"+dateFormat.format(résultats.getDate("dateajout"))+"\n" +"id announcement :  "+  résultats.getInt("announcement_id")
+				   +"\n" +résultats.getInt("user_id")); 
+				   
+				   encore = résultats.next();
+			   }
+			   résultats.close();
+			} catch (SQLException e) {
+				arret("Anomalie lors de l'execution de la requête") ;
+			}
+	}
+	
+	
+	public void enregistrerAnnonceFavori(int idFavori) {
+		
+		User userConnected = userDAO.connectAccount();
+		
+		System.out.println("**********voici la liste de vos annonces***************");
+		announceDAO.consulterAnnonces();
+		
+		System.out.println("***************choose one to make it like favorit*******");
+		
+		Scanner sc7 = new Scanner(System.in);
+		int favoritAnnouncement= sc7.nextInt();
+		
+		Calendar calendar = Calendar.getInstance();
+		java.util.Date currentDate = calendar.getTime();
+
+		
+		
+		requete = "INSERT INTO vintud.favoris  values  ("+idFavori+","+favoritAnnouncement+","+userConnected.getId_user()+",'"+currentDate+"');"   ;
+		
+		try {
+    		Statement stmt = con.createStatement();
+    		stmt.executeUpdate(requete) ;
+        
+    		System.out.println("Your announcement are now in your favorit liste !! ;)  ");
+    		
+    		System.out.println("That's the list of your current favorits!!" );
+    		afficherFavorisForAUser(userConnected.getId_user());
+    		//afficherFavoris() ;
+    		affiche("fin du programme");
+    		System.exit(0);
+		} 
+    	catch (SQLException e) {
+			arret("Anomalie lors de l'execution de la requête") ;
+		}	
+	}
  		
 }
 	

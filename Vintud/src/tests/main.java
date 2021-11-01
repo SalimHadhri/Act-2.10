@@ -58,7 +58,13 @@ public class main {
 		//announcementDao.consulterAnnonces(); 
 		//announcementDao.findAnnouncementByNameCatgeryAndOrPrice();
 		//announcementDao.filtreAnnoucementPrix();
-		announcementDao.filtreAnnoucementLocalisation();
+		//announcementDao.filtreAnnoucementLocalisation();
+		
+		/****************************************************************/
+		//favorisDAO.enregistrerAnnonceFavori(90) ;
+		
+		/***************************************************************/
+		//announcementDao.voirNombreVues(); 
 	}
 
 }

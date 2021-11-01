@@ -10,5 +10,6 @@ public interface UserDao {
 	public User connectAccount () ; 
 	public void modificationInformationsPersonnelles () ;
 	public void afficherUtilisateurs() ;
+
 	
 }

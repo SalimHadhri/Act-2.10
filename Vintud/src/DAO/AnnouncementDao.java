@@ -8,6 +8,7 @@ public interface AnnouncementDao {
 	public void findAnnouncementByNameCatgeryAndOrPrice () ;		
 	public void filtreAnnoucementPrix () ;
 	public void filtreAnnoucementLocalisation () ;
+	public void voirNombreVues () ;
 
 	
 }

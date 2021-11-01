@@ -13,6 +13,7 @@ import DAO.CategoryDao;
 import DAO.UserDao;
 import factory.DAOFactory;
 import models.Recherche;
+import models.User;
 import utils.ConnectionManager;
 
 public class AnnouncementDaoImpl implements AnnouncementDao{
@@ -21,7 +22,8 @@ public class AnnouncementDaoImpl implements AnnouncementDao{
     //ConnectionManager.getInstance().getConnection();
 
 	CategoryDao categoryDao = DAOFactory.getCategoryDAO() ;
-
+	UserDao userDAO = DAOFactory.getUserDAO() ;
+	
     ResultSet résultats = null;
     String requete = "";
     ResultSetMetaData rsmd;
@@ -258,6 +260,34 @@ public class AnnouncementDaoImpl implements AnnouncementDao{
 					+"\n"+résultats.getInt("view_number")
 					+"\n"+"that's the localisation : "+résultats.getString("localisation")
 					+"\n"+résultats.getInt("user_id") );
+				   
+				   encore = résultats.next();
+			   }
+			   résultats.close();
+			} catch (SQLException e) {
+				arret("Anomalie lors de l'execution de la requête") ;
+			}
+		
+	}
+
+	public void voirNombreVues () {
+		
+		User userConnected = userDAO.connectAccount() ;
+		
+		requete = "SELECT * FROM vintud.announcement WHERE user_id = "+userConnected.getId_user()+"; ";
+		
+		
+		try {
+	         Statement stmt = con.createStatement();
+	         résultats = stmt.executeQuery(requete);
+			 boolean encore = résultats.next();
+			 while (encore) {
+				 System.out.println("***********voici le nombre de vue pour chacune de vos annonces *************");
+				   System.out.println("*********** new announcement ********");
+				   System.out.println("id announcement : "+résultats.getInt("id")
+					+"\n"+"title of your annoucement : " +  résultats.getString("title")
+					+"\n" +" description of your annoucement : "  +résultats.getString("description")
+					+"\n"+" number of view of your annoucement : " +résultats.getInt("view_number"));
 				   
 				   encore = résultats.next();
 			   }
