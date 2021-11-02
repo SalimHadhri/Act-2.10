@@ -1,6 +1,7 @@
 package models;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 import DAO.AnnouncementDao;
@@ -14,8 +15,8 @@ public class Announcement{
 	private String description  ;
 	private int category_id  ;
 	private float price ;
-	private byte[] picture ;
-	private Date publication_date ; 
+	private byte picture ;
+	private Timestamp publication_date ; 
 	private boolean is_available  ;
 	private int view_number  ;
 	private String localisation  ;
@@ -28,7 +29,7 @@ public class Announcement{
 
 
 	public Announcement(int id_annoucement, String title, String description, int category_id, float price,
-			byte[] picture, Date publication_date, boolean is_available, int view_number, String localisation,
+			byte picture, Timestamp publication_date, boolean is_available, int view_number, String localisation,
 			int user_id) {
 		this.id_annoucement = id_annoucement;
 		this.title = title;
@@ -96,22 +97,22 @@ public class Announcement{
 	}
 
 
-	public byte[] getPicture() {
+	public byte getPicture() {
 		return picture;
 	}
 
 
-	public void setPicture(byte[] picture) {
+	public void setPicture(byte picture) {
 		this.picture = picture;
 	}
 
 
-	public Date getPublication_date() {
+	public Timestamp getPublication_date() {
 		return publication_date;
 	}
 
 
-	public void setPublication_date(Date publication_date) {
+	public void setPublication_date(Timestamp publication_date) {
 		this.publication_date = publication_date;
 	}
 
@@ -174,6 +175,20 @@ public class Announcement{
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Announcement [id_annoucement=" + id_annoucement + ", title=" + title + ", description=" + description
+				+ ", category_id=" + category_id + ", price=" + price + ", picture=" + picture + ", publication_date="
+				+ publication_date + ", is_available=" + is_available + ", view_number=" + view_number
+				+ ", localisation=" + localisation + ", user_id=" + user_id + "]";
+	}
+
+
+
+
 
 
 

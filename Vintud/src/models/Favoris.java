@@ -61,6 +61,13 @@ public class Favoris {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Favoris [id_favoris=" + id_favoris + ", id_announcement=" + id_announcement + ", id_utilisateur="
+				+ id_utilisateur + ", dateAjout=" + dateAjout + "]";
+	}
+
+
 
 
 	

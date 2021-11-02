@@ -11,8 +11,10 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import DAO.AnnouncementDao;
@@ -286,6 +288,47 @@ public class FavorisDaoImpl implements FavorisDAO{
 			arret("Anomalie lors de l'execution de la requête") ;
 		}	
 	}
+	
+	public ArrayList<Favoris> findFavoriByIdUser (int id) {
+		
+		ArrayList<Favoris> listeFavoris= new ArrayList<Favoris>() ;
+		
+		
+		Favoris favoriFound = new Favoris() ;
+		requete = "SELECT * FROM vintud.favoris WHERE user_id ="+id + "  ;" ;
+		try {
+	         Statement stmt = con.createStatement();
+	         résultats = stmt.executeQuery(requete);
+				
+	         boolean encore = résultats.next();
+			  while (encore) {		
+				Favoris favoris = new Favoris() ;
+				
+				favoris.setId_announcement(résultats.getInt("announcement_id"));
+				favoris.setId_favoris(résultats.getInt("id"));
+				favoris.setId_utilisateur(résultats.getInt("user_id"));
+			 
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");		 
+				String dateToBe = dateFormat.format(résultats.getDate("dateajout"))  ;
+		 
+				String date = dateFormat.format(résultats.getDate("dateajout")) ;
+				favoris.setDateAjout(dateToBe);		
+				
+				listeFavoris.add(favoris) ;
+				encore = résultats.next();
+				   
+			  }
+			   
+			   résultats.close();
+			   
+		} catch (SQLException e) {
+				arret("Anomalie lors de l'execution de la requête") ;
+		}
+		return listeFavoris ;
+		
+		
+	}
+
  		
 }
 	

@@ -1,6 +1,9 @@
 package DAO;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.Favoris;
 
 public interface FavorisDAO {
@@ -15,6 +18,8 @@ public interface FavorisDAO {
 	
 	public void enregistrerAnnonceFavori(int idFavori) ;
 	public void afficherFavorisForAUser(int idUser) ;
+	
+	public ArrayList<Favoris> findFavoriByIdUser (int id) ;
 	
 	
 	

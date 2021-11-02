@@ -2,12 +2,17 @@ package tests;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import DAO.AnnouncementDao;
 import DAO.CategoryDao;
 import DAO.FavorisDAO;
 import DAO.RechercheDAO;
 import DAO.UserDao;
 import factory.DAOFactory;
+import models.Announcement;
+import models.Favoris;
 import models.User;
 
 public class main {
@@ -61,10 +66,18 @@ public class main {
 		//announcementDao.filtreAnnoucementLocalisation();
 		
 		/****************************************************************/
-		//favorisDAO.enregistrerAnnonceFavori(90) ;
+		//favorisDAO.enregistrerAnnonceFavori(5000) ;dsfs
 		
 		/***************************************************************/
 		//announcementDao.voirNombreVues(); 
-	}
+		List<User> userList = userDao.findAllUsers() ;
+		
+		for(User an : userList) {
+			
+			System.out.println(an.toString())  ; 
+		}
+		
 
+		
+	}
 }

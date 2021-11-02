@@ -1,5 +1,8 @@
 package DAO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.User;
 
 public interface UserDao {
@@ -10,6 +13,8 @@ public interface UserDao {
 	public User connectAccount () ; 
 	public void modificationInformationsPersonnelles () ;
 	public void afficherUtilisateurs() ;
+	
+	public ArrayList<User> findAllUsers () ;
 
 	
 }

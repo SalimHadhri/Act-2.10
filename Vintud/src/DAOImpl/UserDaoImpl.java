@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import DAO.UserDao;
@@ -254,5 +256,36 @@ public class UserDaoImpl implements UserDao {
 		    System.exit(0);  	
 	    }
 	    
-	    
+		public ArrayList<User> findAllUsers () {
+			
+			ArrayList<User> usersList = new ArrayList<User>() ;
+			requete = "SELECT * FROM vintud.user ; ";
+			try {
+		        Statement stmt = con.createStatement();
+		        résultats = stmt.executeQuery(requete);
+				boolean encore = résultats.next();
+				while (encore) {
+					User user = new User() ;
+					user.setId_user(résultats.getInt("id"));
+					user.setFirstname(résultats.getString("firstname"));
+					user.setName(résultats.getString("name"));
+					user.setPseudo(résultats.getString("pseudo"));
+					user.setMail(résultats.getString("mail"));
+					user.setU_password(résultats.getString("u_password"));
+					user.setPhone(résultats.getString("phone"));
+					user.setAddress(résultats.getString("address"));
+					user.setRole_id(résultats.getInt("id"));
+					
+					usersList.add(user) ;
+				encore = résultats.next();
+				}
+				résultats.close();
+			} catch (SQLException e) {
+					arret("Anomalie lors de l'execution de la requête") ;
+			}
+			
+			return usersList ;
+			
+		}
+
 }

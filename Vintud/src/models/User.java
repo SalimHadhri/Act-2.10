@@ -20,8 +20,7 @@ public class User {
 	
 	private int role_id  ;
 	
-	private List<Announcement> annonces    ;	
-	private List<Announcement> ListAnnonceFavoris;
+
 	
 	
 	public User() {
@@ -31,34 +30,12 @@ public class User {
 
 
 
-	public User(int id_user, String firstname, String name, String pseudo, String mail, String u_password, String phone,
-			String address, int role_id) {
-		this.id_user = id_user;
-		this.firstname = firstname;
-		this.name = name;
-		this.pseudo = pseudo;
-		this.mail = mail;
-		this.u_password = u_password;
-		this.phone = phone;
-		this.address = address;
-		this.role_id = role_id;
-	}
 
 
-	public User(int id_user, String firstname, String name, String pseudo, String mail, String u_password, String phone,
-			String address, int role_id, List<Announcement> annonces, List<Announcement> listAnnonceFavoris) {
-		this.id_user = id_user;
-		this.firstname = firstname;
-		this.name = name;
-		this.pseudo = pseudo;
-		this.mail = mail;
-		this.u_password = u_password;
-		this.phone = phone;
-		this.address = address;
-		this.role_id = role_id;
-		this.annonces = annonces;
-		ListAnnonceFavoris = listAnnonceFavoris;
-	}
+
+
+
+
 
 
 
@@ -148,25 +125,45 @@ public class User {
 
 
 
-	public List<Announcement> getAnnonces() {
-		return annonces;
+
+
+
+
+	public User(int id_user, String firstname, String name, String pseudo, String mail, String u_password, String phone,
+			String address, int role_id) {
+		super();
+		this.id_user = id_user;
+		this.firstname = firstname;
+		this.name = name;
+		this.pseudo = pseudo;
+		this.mail = mail;
+		this.u_password = u_password;
+		this.phone = phone;
+		this.address = address;
+		this.role_id = role_id;
 	}
 
 
-	public void setAnnonces(List<Announcement> annonces) {
-		this.annonces = annonces;
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "User [id_user=" + id_user + "\n"+ "firstname=" + firstname + "\n"+" name=" + name + "\n"+" pseudo=" + pseudo
+				+ "\n"+" mail=" + mail + "\n"+" u_password=" + u_password + "\n"+" phone=" + phone + "\n"+" address=" + address
+				+ "\n"+" role_id=" + role_id + "]";
 	}
 
 
 
-	public List<Announcement> getListAnnonceFavoris() {
-		return ListAnnonceFavoris;
-	}
 
 
-	public void setListAnnonceFavoris(List<Announcement> listAnnonceFavoris) {
-		ListAnnonceFavoris = listAnnonceFavoris;
-	}
+
+
+
+
 	
 	
 }
